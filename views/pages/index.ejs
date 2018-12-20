@@ -8,7 +8,7 @@
 	<meta name="description" content="">
 
 	<!-- Title -->
-	<title>LaunchNode</title>
+	<title>Find Me</title>
 
 	<!-- Thumbnails -->
 	<link rel="shortcut icon" href="images/favicon.ico">
@@ -37,10 +37,83 @@
 		<!-- Main jumbotron for a primary marketing message or call to action -->
 		<div class="jumbotron">
 			<div class="container">
-				<h1 class="display-3">NASA APOD API IN ACTION</h1>
-				<p>Courtesy of api.NASA.gov</p>
+				<h1 class="display-3">Find Me</h1>
+			
 				<% hello %>	
 				<p><a class="btn btn-primary btn-lg" href="https://api.nasa.gov/#getting-started" role="button">Learn more »</a></p>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+
+					<p><button class="btn btn-primary btn-lg" onclick="getLocation()">Step 2: Get Location</button></p>
+
+					<p><h4>Click ONCE!  Wait for location to load!</h4></p>
+	 
+	 
+	 
+	  
+	 
+					  <form id="nocameraform">
+	 
+						 <p>
+	 
+							<label>Latitude</label><br>
+	 
+							<input type="text" id="latcoords" name="latcoords" disabled><br>
+	 
+						 </p>
+	 
+						 <p>
+	 
+							<label>Latitude</label><br>
+	 
+							<input type="text" id="longcoords" name="longcoords" disabled><br>
+	 
+						 </p>
+	 
+										  
+	 
+						<p>
+	 
+						  <label>Name</label><br>
+	 
+						  <input type="text" name="name" id="name">
+	 
+						</p>
+	 
+						<p>
+	 
+						  <label>Phone Number</label><br>
+	 
+						  <input type="text" name="phone" id="phone">
+	 
+						</p>
+	 
+						 <p>
+	 
+						 <label>Special Hidden Field</label><br>
+	 
+						 <input type="hidden" name="myHiddenField" id="myHiddenField"> 
+	 
+						 </p>
+	 
+	 
+	 
+						<p>
+	 
+						  <button type="submit" class="btn btn-primary btn-lg" value="submit">SUBMIT!</button>
+	 
+						</p>
+	 
+					  </form>
+	 
+			   
+	 
+			   <div class="alert"style="display:none;color:red;"><h3>SENT!</h3></div><br/>
+
+				</div>
 			</div>
 		</div>
 
