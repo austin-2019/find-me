@@ -45,7 +45,31 @@
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12">
+					<div class="col-md-6">
+           
+							<h1>Register:</h1>
+			 
+								   <script>
+										function hasGetUserMedia() {
+										  return !!(navigator.mediaDevices &&
+											navigator.mediaDevices.getUserMedia);
+										}
+										if (hasGetUserMedia()) {
+										  // Good to go!
+										} else {
+										  alert('getUserMedia() is not supported by your browser');
+										}
+									   </script>
+									   <div id="screenshot">
+										  <!-- image capture see https://www.html5rocks.com/en/tutorials/getusermedia/intro/ -->
+										  <video class="videostream" autoplay></video><br />
+										  <img id="screenshot-img"><br>
+										  <p style="padding-top:25px;"><button id="screenshot-button" class="capture-button btn btn-primary btn-lg">Step 1: Take a Snapshot!</button></p> 
+										  <input type="text" name="hidden-screenshot" id="hidden-screenshot" style="display:none;" />
+									   </div><!-- id screenshot -->  
+			   
+					   </div><!-- col md6 for screenshot -->
+				<div class="col-md-6">
 
 					<p><button class="btn btn-primary btn-lg" onclick="getLocation()">Step 2: Get Location</button></p>
 
@@ -115,34 +139,9 @@
 
 				</div>
 			</div>
-		</div>
 
-		<div class="container">
-			<!-- Example row of columns -->
-			<div class="row">
-				<div class="col-md-12">
 
-					<b>API URL:</b>
-					<pre id="reqObject"></pre>
-					
-					
-					<img id="apod_img_id" width="250px"/>
-					
-					<iframe id="apod_vid_id" type="text/html" width="640" height="385" frameborder="0"></iframe>
-					<p id="copyright"></p>
-					
-					<h3 id="apod_title"></h3>
-					<p id="apod_explanation"></p>
-					<br/>
-					<b>Return Object:</b>
-					<pre id="returnObject"></pre>
 
-				</div>
-			</div>
-
-			<hr>
-
-		</div> 
 
     </main>
     
