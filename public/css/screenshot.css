@@ -1,0 +1,20 @@
+/* original
+
+video, #screenshot-img {
+
+  width: 400px;
+
+  height: 300px;
+
+}
+
+/* width shrunk down from 400 by 300 to accomodate md-4 */
+video {
+    width: 300px; 
+    height: 225px;
+  } 
+  #screenshot-img {
+    width: 200px;
+    height: 150px;
+  }
+  /*reducing size of image to try to get form to accept it -- doesnt work Error: URI Too Long */
