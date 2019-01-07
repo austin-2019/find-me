@@ -23,7 +23,6 @@ $.ajax({
       $("#fbother_img_id").attr("src", parsedResult.url);
     }
     //$("#reqObject").text('Hello' + result.explanation);
-
     
     $("#reqObjectFB").text('Hello' + parsedResult);
     $("#reqObjectFB").text(parsedResult.url);
