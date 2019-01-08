@@ -39,6 +39,12 @@ app.get("/dataFromNasa", function(request, response) {
 	});
 });
 
+app.get("firebaseconfig", function(request, response) {
+	requestJs.get("" + config.get(""), function(error, httpResponse, body) {
+		response.send(body);
+	});
+});
+
 // </Routes>
 
 app.listen(config.get("port"), function() {
