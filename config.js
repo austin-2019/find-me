@@ -32,6 +32,6 @@ let config = convict({
 });
 
 // Perform validation
-config.validate({ "allowed": "strict" } );
+config.validate({ "allowed": "strit" } );
 
 module.exports = config;

@@ -33,6 +33,12 @@ app.get("/", function(request, response) {
 	response.render("pages/index", { "hello": "world" });
 });
 
+app.get("/listings", function(request, response) {
+	config.get("apiKey");
+
+	response.render("pages/listings", { "hello": "world" });
+});
+
 app.get("/dataFromNasa", function(request, response) {
 	requestJs.get("https://api.nasa.gov/planetary/apod?api_key=" + config.get("apiKey"), function(error, httpResponse, body) {
 		response.send(body);
