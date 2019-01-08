@@ -40,7 +40,7 @@ app.get("/dataFromNasa", function(request, response) {
 });
 
 app.get("firebaseconfig", function(request, response) {
-	requestJs.get("" + config.get(""), function(error, httpResponse, body) {
+	requestJs.get("https://find-me-eba22.firebaseio.com/" + config.get(""), function(error, httpResponse, body) {
 		response.send(body);
 	});
 });

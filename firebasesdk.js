@@ -1,9 +1,11 @@
 /* https://firebase.google.com/docs/admin/setup#add_firebase_to_your_app */
-var admin = require('firebase-admin');
+/* https://stackoverflow.com/questions/38541098/how-to-retrieve-data-from-firebase-database */
 
-var serviceAccount = require('path/to/serviceAccountKey.json');
+var admin = require("firebase-admin");
+
+var serviceAccount = require("path/to/serviceAccountKey.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://<DATABASE_NAME>.firebaseio.com'
+  databaseURL: "https://find-me-eba22.firebaseio.com"
 });
