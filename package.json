@@ -13,6 +13,8 @@
     "convict": "^4.4.1",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "firebase": "^5.7.2",
+    "firebase-admin": "^6.4.0",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.7",
     "request": "^2.88.0",

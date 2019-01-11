@@ -25,6 +25,10 @@ if (config.get("env") !== "production") {
 
 app.use(express.static(path.join(__dirname, "public")));
 
+let firebase = require("firebase");
+
+firebase.initializeApp(require("./client_secret"));
+
 // <Routes>
 
 app.get("/", function(request, response) {
@@ -34,19 +38,19 @@ app.get("/", function(request, response) {
 });
 
 app.get("/listings", function(request, response) {
-	config.get("apiKey");
-
 	response.render("pages/listings", { "hello": "world" });
 });
+app.get("/postToFirebase", function(request, response){
+	console.log("sending the thing");
+	firebase.database().ref("/TextMessages").set(request.query), function(error) {
+		console.log(error);
+	};
+	console.log("done sending the thing");
 
+	response.render("pages/index");
+});
 app.get("/dataFromNasa", function(request, response) {
 	requestJs.get("https://api.nasa.gov/planetary/apod?api_key=" + config.get("apiKey"), function(error, httpResponse, body) {
-		response.send(body);
-	});
-});
-
-app.get("firebaseconfig", function(request, response) {
-	requestJs.get("https://find-me-eba22.firebaseio.com/" + config.get(""), function(error, httpResponse, body) {
 		response.send(body);
 	});
 });
