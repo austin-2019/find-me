@@ -49,12 +49,13 @@ app.get("/postToFirebase", function(request, response){
 
 	response.render("pages/index");
 });
+/*
 app.get("/dataFromNasa", function(request, response) {
 	requestJs.get("https://api.nasa.gov/planetary/apod?api_key=" + config.get("apiKey"), function(error, httpResponse, body) {
 		response.send(body);
 	});
 });
-
+*/
 // </Routes>
 
 app.listen(config.get("port"), function() {
