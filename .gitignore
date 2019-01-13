@@ -62,3 +62,4 @@ typings/
 
 # Firebase client secret
 client_secret.js
+client_secret_as_json.json
