@@ -32,7 +32,7 @@ firebase.initializeApp(require("./client_secret"));
 // <Routes>
 
 app.get("/", function(request, response) {
-	config.get("apiKey");
+	/* config.get("apiKey"); */
 
 	response.render("pages/index", { "hello": "world" });
 });
