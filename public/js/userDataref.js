@@ -19,3 +19,9 @@ userDataRef.once("value").then(function(snapshot){
         $("#displayphone").append(phone_val);
     });
 });
+var leadsRef = database.ref('TextMessages');
+leadsRef.on('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var childData = childSnapshot.val();
+    });
+});
