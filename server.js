@@ -40,9 +40,10 @@ app.get("/", function(request, response) {
 app.get("/listings", function(request, response) {
 	response.render("pages/listings", { "hello": "world" });
 });
+
 app.get("/postToFirebase", function(request, response){
 	console.log("sending the thing");
-	firebase.database().ref("/TextMessages").set(request.query), function(error) {
+	firebase.database().ref("/TextMessages").push(request.query), function(error) {
 		console.log(error);
 	};
 	console.log("done sending the thing");
