@@ -51,7 +51,9 @@ app.get("/postToFirebase", function(request, response){
 	response.render("pages/index");
 });
 app.get("/dataFromFirebase", function(request, response) {
+
 	console.log("hello I am here");
+	response.send(body);
 
 });
 /*
