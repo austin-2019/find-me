@@ -1,6 +1,8 @@
 /* based on stackoverflow questions/42684712/display-data-from-firebase-database-in-a-html-page */
 /* https://stackoverflow.com/questions/38541098/how-to-retrieve-data-from-firebase-database */
 /* https://firebase.google.com/docs/reference/js/firebase.database.DataSnapshot#forEach */
+
+
 var TextMessagesRef = firebase.database().ref("TextMessages").orderByKey();
 TextMessagesRef.once("value").then(function(snapshot){
     snapshot.forEach(function(childSnapshot){
@@ -17,8 +19,10 @@ TextMessagesRef.once("value").then(function(snapshot){
         $("#displayhiddenfield").append(myhiddenfield_val);
         $("#displayname").append(name_val);
         $("#displayphone").append(phone_val);
+        console.log("hello");
     });
 });
+
 /*
 var testRef = database.ref('messages');
 testRef.on('value', function(snapshot) {

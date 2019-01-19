@@ -56,6 +56,7 @@ app.get("/dataFromFirebase", function(request, response) {
 	response.send(body);
 
 });
+
 /*
 app.get("/dataFromNasa", function(request, response) {
 	requestJs.get("https://api.nasa.gov/planetary/apod?api_key=" + config.get("apiKey"), function(error, httpResponse, body) {
