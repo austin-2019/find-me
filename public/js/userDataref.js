@@ -1,8 +1,8 @@
 /* currently database is over-writing out current data check for append */
 /* based on stackoverflow questions/42684712/display-data-from-firebase-database-in-a-html-page */
 /* https://stackoverflow.com/questions/38541098/how-to-retrieve-data-from-firebase-database */
-var userDataRef = firebase.database().ref("TextMessages").orderByKey();
-userDataRef.once("value").then(function(snapshot){
+var TextMessagesRef = firebase.database().ref("TextMessages").orderByKey();
+TextMessagesRef.once("name").then(function(snapshot){
     snapshot.forEach(function(childSnapshot){
         var key = childSnapshot.key;
         var childData = childSnapshot.val();
@@ -19,9 +19,11 @@ userDataRef.once("value").then(function(snapshot){
         $("#displayphone").append(phone_val);
     });
 });
+/*
 var testRef = database.ref('messages');
 testRef.on('value', function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
       var childData = childSnapshot.val();
     });
 });
+*/
