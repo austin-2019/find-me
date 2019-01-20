@@ -15,9 +15,9 @@ let config = convict({
 		"arg": "port"
 	},
 	"apiKey": {
-		"doc": "The NASA API key.",
+		"doc": "The Firebase Web API key.",
 		"format": "*",
-		"default": "LKVQ0ZOycxqbnXO2Mc0oqepDQAhkBQsfYX4cWzWv",
+		"default": "LKVQ0ZOycxqbnXO2Mc0oqepDQAhkBQsfYX4cWzWvAIzaSyD123PvPBnD0L4Nw6DKvlyjPzYIE9Sx_Jo",
 		"env": "API_KEY",
 		"arg": "apiKey"
 	}

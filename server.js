@@ -51,7 +51,8 @@ app.get("/postToFirebase", function(request, response){
 	response.render("pages/index");
 });
 app.get("/dataFromFirebase", function(request, response) {
-	requestJs.get("https://find-me-eba22.firebaseio.com?api_key=" + config.get("apiKey"), function(error, httpResponse, body) {
+	console.log("testing 123");
+	requestJs.get("https://find-me-eba22.firebaseio.com/TextMessages.json?api_key=" + config.get("apiKey"), function(error, httpResponse, body) {
 		response.send(body);
 	});
 });
