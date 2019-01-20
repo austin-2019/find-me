@@ -50,6 +50,18 @@ app.get("/postToFirebase", function(request, response){
 
 	response.render("pages/index");
 });
+
+var ref = firebase.database().ref();
+
+ref.on("value", function(snapshot) {
+   console.log(snapshot.val());
+}, function (error) {
+   console.log("Error: " + error.code);
+   console.log("Testing ref on value");
+});
+
+
+
 app.get("/dataFromFirebase", function(request, response) {
 	console.log("testing 123");
 	requestJs.get("https://find-me-eba22.firebaseio.com/TextMessages.json?api_key=" + config.get("apiKey"), function(error, httpResponse, body) {
