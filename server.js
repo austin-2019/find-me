@@ -55,12 +55,12 @@ var ref = firebase.database().ref();
 
 ref.on("value", function(snapshot) {
    console.log(snapshot.val());
+   console.log("Testing ref on value");
 }, function (error) {
    console.log("Error: " + error.code);
-   console.log("Testing ref on value");
 });
 
-
+/* https://www.tutorialspoint.com/firebase/firebase_read_data.htm */
 
 app.get("/dataFromFirebase", function(request, response) {
 	console.log("testing 123");
