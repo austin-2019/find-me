@@ -61,13 +61,28 @@ ref.on("value", function(snapshot) {
 });
 */
 /* https://www.tutorialspoint.com/firebase/firebase_read_data.htm */
-
+/*
 var nameRef = firebase.database().ref("TextMessages/");
 
-nameRef.orderByChild("name").on("child_added", function(data) {
+name
+Ref.orderByChild("name").on("child_added", function(data) {
    console.log(data.val().name);
 });
+*/
 /* https://www.tutorialspoint.com/firebase/firebase_queries.htm */
+
+var ratingRef = firebase.database().ref("TextMessages/");
+
+ratingRef.orderByValue().on("value", function(data) {
+   
+   data.forEach(function(data) {
+      console.log("The " + data.key + " rating is " + data.val());
+   });
+   
+});
+/* https://www.tutorialspoint.com/firebase/firebase_queries.htm */
+
+
 
 app.get("/dataFromFirebase", function(request, response) {
 	console.log("testing 123");
