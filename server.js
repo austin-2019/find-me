@@ -51,19 +51,11 @@ app.get("/postToFirebase", function(request, response){
 	response.render("pages/index");
 });
 app.get("/dataFromFirebase", function(request, response) {
-
-	console.log("hello I am here");
-	response.send(body);
-
-});
-
-/*
-app.get("/dataFromNasa", function(request, response) {
-	requestJs.get("https://api.nasa.gov/planetary/apod?api_key=" + config.get("apiKey"), function(error, httpResponse, body) {
+	requestJs.get("https://find-me-eba22.firebaseio.com?api_key=" + config.get("apiKey"), function(error, httpResponse, body) {
 		response.send(body);
 	});
 });
-*/
+/* https://firebase.google.com/docs/reference/rest/database/ */
 // </Routes>
 
 app.listen(config.get("port"), function() {
