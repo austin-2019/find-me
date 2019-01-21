@@ -48,7 +48,7 @@ app.get("/listings", function(request,response) {
     var textmessages_key = request.query.textmessages_key;
     var textmessages_obj = firebase.database().ref("TextMessages").child(textmessages_key).once('value').then((snap) => {
            obj = snap.val();
-           res.render("pages/listings",{pages: obj, key: textmessages_key});
+           response.render("pages/listings",{textMessagesRef: obj, key: textmessages_key});
     });
 });
 
