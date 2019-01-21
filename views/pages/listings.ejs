@@ -33,30 +33,6 @@
 			</div>
 		</div>
 
-		<script>
-		var TextMessagesRef = firebase.database().ref("TextMessages").orderByKey();
-		TextMessagesRef.once("value").then(function(snapshot){
-    	snapshot.forEach(function(childSnapshot){
-        var key = childSnapshot.key;
-        var childData = childSnapshot.val();
-
-        var latcoords_val = childSnapshot.val().latcoords;
-        var longcoords_val = childSnapshot.val().longcoords;
-        var myhiddenfield_val = childSnapshot.val().myHiddenField;
-        var name_val = childSnapshot.val().name;
-        var phone_val = childSnapshot.val().phone;
-        $("#displaylat").append(latcoords_val);
-        $("#displaylong").append(longcoords_val);
-        $("#displayhiddenfield").append(myhiddenfield_val);
-        $("#displayname").append(name_val);
-        $("#displayphone").append(phone_val);
-        console.log("hello");
-		});
-	});
-		</script>
-
-
-
 		<div class="container">
 			<div class="row">
 					<div class="col-md-12">
