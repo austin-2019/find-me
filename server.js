@@ -36,20 +36,26 @@ app.get("/", function(request, response) {
 
 	response.render("pages/index", { "hello": "world" });
 });
-/*
+
 app.get("/listings", function(request, response) {
 	//response.render("pages/listings", { "hello": "world" });
 	response.render("pages/listings", textMessagesRef)
 });
-*/
+
 
 /* https://stackoverflow.com/questions/46969763/how-to-render-view-template-using-node-js-express */
+/* Error message to below cant get headers after they are sent */
+/*
 app.get("/listings", function(request,response) {
 	var textMessagesRef = firebase.database().ref("TextMessages/");
-    //textMessagesRef.orderByKey().on("child_added", function(data) {
+	console.log("testing from 47");	
+    textMessagesRef.orderByKey().on("child_added", function(data) {
+	console.log("testing from 50");	
 	response.render("pages/listings", textMessagesRef)
+		});
 	});
-/* end above */
+	*/
+/* end above cant get headers after they are sebt */
 
 app.get("/postToFirebase", function(request, response){
 	console.log("sending the thing");
