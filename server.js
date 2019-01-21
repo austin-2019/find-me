@@ -42,6 +42,18 @@ app.get("/listings", function(request, response) {
 	response.render("pages/listings", textMessagesRef)
 });
 
+/* https://stackoverflow.com/questions/46969763/how-to-render-view-template-using-node-js-express */
+app.get("/listings", function(request,response) {
+        
+    var textmessages_key = request.query.textmessages_key;
+    var textmessages_obj = firebase.database().ref("TextMessages").child(textmessages_key).once('value').then((snap) => {
+           obj = snap.val();
+           res.render("pages/listings",{pages: obj, key: textmessages_key});
+    });
+});
+
+/* end above */
+
 app.get("/postToFirebase", function(request, response){
 	console.log("sending the thing");
 	firebase.database().ref("/TextMessages").push(request.query), function(error) {
@@ -83,26 +95,6 @@ textMessagesRef.orderByKey().on("child_added", function(data) {
    console.log(phonetest);
 
 });
-
-/* node calls the below code an unhandled promise rejection */
-/* Do not use code below this line */
-// var TextMessagesRef = firebase.database().ref("TextMessages").orderByKey();
-// TextMessagesRef.once("value").then(function(snapshot){
-// snapshot.forEach(function(childSnapshot){
-// var key = childSnapshot.key;
-// var childData = childSnapshot.val();
-
-// var latcoords_val = childSnapshot.val().latcoords;
-// var longcoords_val = childSnapshot.val().longcoords;
-// var myhiddenfield_val = childSnapshot.val().myHiddenField;
-// var name_val = childSnapshot.val().name;
-// var phone_val = childSnapshot.val().phone;
-
-// console.log("the Latitude is " + data.val().latcoords);
-	// });
-// });
-/* do not use code above unhandled promise according to node */
-
 /*
 var nameRef = firebase.database().ref("TextMessages/");
 
