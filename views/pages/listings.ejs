@@ -29,24 +29,9 @@
 				<h1 class="display-3">Find Me</h1>
 			
 				<% hello %>	
-				<p><a class="btn btn-primary btn-lg" href="https://www.pbs.org/newshour/nation/81-children-separated-from-families-at-u-s-mexico-border-since-june" role="button">Learn more »</a></p>
+			<p><a class="btn btn-primary btn-lg" href="https://www.pbs.org/newshour/nation/81-children-separated-from-families-at-u-s-mexico-border-since-june" role="button">Learn more »</a></p>
 			</div>
 		</div>
-		<script>
-		var ref = firebase.database().ref();
-
-ref.on("value", function(snapshot) {
-   console.log(snapshot.val());
-}, function (error) {
-   console.log("Error: " + error.code);
-});
-		
-		
-		
-		</script>
-
-
-
 
 		<script>
 		var TextMessagesRef = firebase.database().ref("TextMessages").orderByKey();

@@ -61,16 +61,25 @@ ref.on("value", function(snapshot) {
 });
 */
 /* https://www.tutorialspoint.com/firebase/firebase_read_data.htm */
+
+var nameRef = firebase.database().ref("TextMessages/");
+
+nameRef.orderByChild("name").on("child_added", function(data) {
+   console.log("the name is " + data.val().name);
+   
+});
+
+
+
 /*
 var nameRef = firebase.database().ref("TextMessages/");
 
-name
-Ref.orderByChild("name").on("child_added", function(data) {
+nameRef.orderByChild("name").on("child_added", function(data) {
    console.log(data.val().name);
 });
 */
 /* https://www.tutorialspoint.com/firebase/firebase_queries.htm */
-
+/*
 var ratingRef = firebase.database().ref("TextMessages/");
 
 ratingRef.orderByValue().on("value", function(data) {
@@ -80,6 +89,7 @@ ratingRef.orderByValue().on("value", function(data) {
    });
    
 });
+*/
 /* https://www.tutorialspoint.com/firebase/firebase_queries.htm */
 
 
