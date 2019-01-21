@@ -61,14 +61,25 @@ ref.on("value", function(snapshot) {
 });
 */
 /* https://www.tutorialspoint.com/firebase/firebase_read_data.htm */
-
+/*
 var nameRef = firebase.database().ref("TextMessages/");
 nameRef.orderByChild("name").on("child_added", function(data) {
    console.log("the name is " + data.val().name);
-   console.log("the phone is " + data.val().phone);
-   
+   console.log("the phone is " + data.val().phone);  
 });
 
+*/
+
+var nameRef = firebase.database().ref("TextMessages/");
+nameRef.orderByKey().on("child_added", function(data) {
+
+   //console.log("the name is " + data.val().name);
+   //console.log("the phone is " + data.val().phone);
+   console.log((data.val().latcoords) + (data.val().phone));
+   console.log(data.val().phone);
+
+
+});
 
 /* node calls the below code an unhandled promise rejection */
 /* Do not use code below this line */
