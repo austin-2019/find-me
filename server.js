@@ -107,7 +107,12 @@ textMessagesRef.orderByKey().on("child_added", function(data) {
 var textMessagesRef = firebase.database().ref("TextMessages/");
 textMessagesRef.once("value", function (snap) {
 	snap.forEach(function (childSnap) {
-	 console.log("snap for Each", childSnap.val());
+	 //console.log("snap for Each", childSnap.val());
+	 console.log("snap for Name", childSnap.val().name);
+	 console.log("snap for Phone", childSnap.val().phone);
+	 console.log("snap for Latitude", childSnap.val().latcoords);
+	 console.log("snap for Longitude", childSnap.val().longcoords);
+	 console.log("snap for Image", childSnap.val().myHiddenField);
 	});
    });
  /* above https://howtofirebase.com/save-and-query-firebase-data-ed73fb8c6e3a */  
