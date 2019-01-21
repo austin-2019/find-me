@@ -31,3 +31,16 @@ testRef.on('value', function(snapshot) {
     });
 });
 */
+/* https://stackoverflow.com/questions/50887636/realtime-database-templating-using-node-ejs-and-firebase */
+/*
+var textMessagesRef = firebase.database().ref("TextMessages/");
+textMessagesRef.orderByKey().on("child_added", function(data) {
+
+   //console.log("the name is " + data.val().name);
+   console.log("The  UserData longitude is" + (data.val().latcoords) + "The  UserData latitude is " + (data.val().longcoords) + "The User Data name is " + (data.val().name) + "The User Data phone is"+ (data.val().phone));
+   var phonetest = " the phone"; 
+   //var phonetest = (data.val().phone);
+   console.log(phonetest);
+
+});
+*/

@@ -88,6 +88,9 @@ nameRef.orderByChild("name").on("child_added", function(data) {
 
 */
 
+/* below works but trying to use once function  instead*/
+
+/*
 var textMessagesRef = firebase.database().ref("TextMessages/");
 textMessagesRef.orderByKey().on("child_added", function(data) {
 
@@ -98,7 +101,18 @@ textMessagesRef.orderByKey().on("child_added", function(data) {
    console.log(phonetest);
 
 });
-/*
+*/
+
+/* below https://howtofirebase.com/save-and-query-firebase-data-ed73fb8c6e3a */
+var textMessagesRef = firebase.database().ref("TextMessages/");
+textMessagesRef.once("value", function (snap) {
+	snap.forEach(function (childSnap) {
+	 console.log("snap for Each", childSnap.val());
+	});
+   });
+ /* above https://howtofirebase.com/save-and-query-firebase-data-ed73fb8c6e3a */  
+
+ /*
 var nameRef = firebase.database().ref("TextMessages/");
 
 nameRef.orderByChild("name").on("child_added", function(data) {
