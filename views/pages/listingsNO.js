@@ -28,6 +28,7 @@
 			<div class="container">
 				<h1 class="display-3">Find Me</h1>
 			
+				<% hello %>	
 			<p><a class="btn btn-primary btn-lg" href="https://www.pbs.org/newshour/nation/81-children-separated-from-families-at-u-s-mexico-border-since-june" role="button">Learn more »</a></p>
 			</div>
 		</div>

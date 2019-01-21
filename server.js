@@ -38,7 +38,8 @@ app.get("/", function(request, response) {
 });
 
 app.get("/listings", function(request, response) {
-	response.render("pages/listings", { "hello": "world" });
+	//response.render("pages/listings", { "hello": "world" });
+	response.render("pages/listings", textMessagesRef)
 });
 
 app.get("/postToFirebase", function(request, response){
@@ -50,6 +51,7 @@ app.get("/postToFirebase", function(request, response){
 
 	response.render("pages/index");
 });
+
 /*
 var ref = firebase.database().ref();
 
@@ -60,6 +62,7 @@ ref.on("value", function(snapshot) {
    console.log("Error: " + error.code);
 });
 */
+
 /* https://www.tutorialspoint.com/firebase/firebase_read_data.htm */
 /*
 var nameRef = firebase.database().ref("TextMessages/");
@@ -74,17 +77,16 @@ var textMessagesRef = firebase.database().ref("TextMessages/");
 textMessagesRef.orderByKey().on("child_added", function(data) {
 
    //console.log("the name is " + data.val().name);
-   //console.log("the phone is " + data.val().phone);
    console.log("The longitude is" + (data.val().latcoords) + "The latitude is " + (data.val().longcoords) + "The name is " + (data.val().name) + "The phone is"+ (data.val().phone));
    var phonetest = " the phone"; 
-   console.log(data.val().phone);
+   //var phonetest = (data.val().phone);
    console.log(phonetest);
 
 });
 
 /* node calls the below code an unhandled promise rejection */
 /* Do not use code below this line */
-//var TextMessagesRef = firebase.database().ref("TextMessages").orderByKey();
+// var TextMessagesRef = firebase.database().ref("TextMessages").orderByKey();
 // TextMessagesRef.once("value").then(function(snapshot){
 // snapshot.forEach(function(childSnapshot){
 // var key = childSnapshot.key;
@@ -100,6 +102,7 @@ textMessagesRef.orderByKey().on("child_added", function(data) {
 	// });
 // });
 /* do not use code above unhandled promise according to node */
+
 /*
 var nameRef = firebase.database().ref("TextMessages/");
 
@@ -108,28 +111,31 @@ nameRef.orderByChild("name").on("child_added", function(data) {
 });
 */
 /* https://www.tutorialspoint.com/firebase/firebase_queries.htm */
-/*
-var ratingRef = firebase.database().ref("TextMessages/");
 
-ratingRef.orderByValue().on("value", function(data) {
+/*
+var textMessages2Ref = firebase.database().ref("TextMessages/");
+
+textMessages2Ref.orderByValue().on("value", function(data) {
    
    data.forEach(function(data) {
-      console.log("The " + data.key + " rating is " + data.val());
-   });
-   
+      console.log("The " + data.key + " information is " + data.val());
+   });  
 });
 */
+
 /* https://www.tutorialspoint.com/firebase/firebase_queries.htm */
 
-
-
+/*
 app.get("/dataFromFirebase", function(request, response) {
 	console.log("testing 123");
 	requestJs.get("https://find-me-eba22.firebaseio.com/TextMessages.json?api_key=" + config.get("apiKey"), function(error, httpResponse, body) {
 		response.send(body);
 	});
 });
+*/
 /* https://firebase.google.com/docs/reference/rest/database/ */
+
+
 // </Routes>
 
 app.listen(config.get("port"), function() {
