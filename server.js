@@ -68,9 +68,24 @@ nameRef.orderByChild("name").on("child_added", function(data) {
    console.log("the name is " + data.val().name);
    
 });
+/* node calls the below code an unhandled promise rejection */
+/* Do not use code below this line */
+//var TextMessagesRef = firebase.database().ref("TextMessages").orderByKey();
+// TextMessagesRef.once("value").then(function(snapshot){
+// snapshot.forEach(function(childSnapshot){
+// var key = childSnapshot.key;
+// var childData = childSnapshot.val();
 
+// var latcoords_val = childSnapshot.val().latcoords;
+// var longcoords_val = childSnapshot.val().longcoords;
+// var myhiddenfield_val = childSnapshot.val().myHiddenField;
+// var name_val = childSnapshot.val().name;
+// var phone_val = childSnapshot.val().phone;
 
-
+// console.log("the Latitude is " + data.val().latcoords);
+	// });
+// });
+/* do not use code above unhandled promise according to node */
 /*
 var nameRef = firebase.database().ref("TextMessages/");
 
