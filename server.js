@@ -70,14 +70,13 @@ nameRef.orderByChild("name").on("child_added", function(data) {
 
 */
 
-var nameRef = firebase.database().ref("TextMessages/");
-nameRef.orderByKey().on("child_added", function(data) {
+var textMessagesRef = firebase.database().ref("TextMessages/");
+textMessagesRef.orderByKey().on("child_added", function(data) {
 
    //console.log("the name is " + data.val().name);
    //console.log("the phone is " + data.val().phone);
-   console.log((data.val().latcoords) + (data.val().phone));
+   console.log("The longitude is" + (data.val().latcoords) + "The latitude is " + (data.val().longcoords) + "The name is " + (data.val().name) + "The phone is"+ (data.val().phone));
    console.log(data.val().phone);
-
 
 });
 
