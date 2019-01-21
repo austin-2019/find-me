@@ -36,22 +36,19 @@ app.get("/", function(request, response) {
 
 	response.render("pages/index", { "hello": "world" });
 });
-
+/*
 app.get("/listings", function(request, response) {
 	//response.render("pages/listings", { "hello": "world" });
 	response.render("pages/listings", textMessagesRef)
 });
+*/
 
 /* https://stackoverflow.com/questions/46969763/how-to-render-view-template-using-node-js-express */
 app.get("/listings", function(request,response) {
-        
-    var textmessages_key = request.query.textmessages_key;
-    var textmessages_obj = firebase.database().ref("TextMessages").child(textmessages_key).once('value').then((snap) => {
-           obj = snap.val();
-           response.render("pages/listings",{textMessagesRef: obj, key: textmessages_key});
-    });
-});
-
+	var textMessagesRef = firebase.database().ref("TextMessages/");
+    //textMessagesRef.orderByKey().on("child_added", function(data) {
+	response.render("pages/listings", textMessagesRef)
+	});
 /* end above */
 
 app.get("/postToFirebase", function(request, response){
