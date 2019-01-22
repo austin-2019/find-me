@@ -31,15 +31,16 @@ firebase.initializeApp(require("./client_secret"));
 
 // <Routes>
 
-app.get("/", function(request, response) {
+app.get("/", function (request, response) {
 	/* config.get("apiKey"); */
 
 	response.render("pages/index", { "hello": "world" });
 });
 
-app.get("/listings", function(request, response) {
+app.get("/listings", function (request, response) {
 	//response.render("pages/listings", { "hello": "world" });
-	response.render("pages/listings", textMessagesRef)
+	console.log(firebaseTextMessagesRefResponse);
+	response.render("pages/listings", firebaseTextMessagesRefResponse)
 });
 
 
@@ -57,9 +58,9 @@ app.get("/listings", function(request,response) {
 	*/
 /* end above cant get headers after they are sebt */
 
-app.get("/postToFirebase", function(request, response){
+app.get("/postToFirebase", function (request, response) {
 	console.log("sending the thing");
-	firebase.database().ref("/TextMessages").push(request.query), function(error) {
+	firebase.database().ref("/TextMessages").push(request.query), function (error) {
 		console.log(error);
 	};
 	console.log("done sending the thing");
@@ -104,24 +105,35 @@ textMessagesRef.orderByKey().on("child_added", function(data) {
 */
 
 /* below https://howtofirebase.com/save-and-query-firebase-data-ed73fb8c6e3a */
-var textMessagesRef = firebase.database().ref("TextMessages/");
-textMessagesRef.once("value", function (snap) {
-	snap.forEach(function (childSnap) {
-	 //console.log("snap for Each", childSnap.val());
-	 console.log("snap for Name", childSnap.val().name);
-	 console.log("snap for Phone", childSnap.val().phone);
-	 console.log("snap for Latitude", childSnap.val().latcoords);
-	 console.log("snap for Longitude", childSnap.val().longcoords);
-	 console.log("snap for Image", childSnap.val().myHiddenField);
-	});
-   });
- /* above https://howtofirebase.com/save-and-query-firebase-data-ed73fb8c6e3a */  
+let textMessagesRef = firebase.database().ref("TextMessages/");
 
- /*
+let firebaseTextMessagesRefResponse = {};
+
+// Bind to event "value"
+textMessagesRef.once("value", function (snap) {
+	console.log("PAY ATTENTION NOW");
+
+	// Does not happen immediately
+	snap.forEach(function (childSnap) {
+		console.log("BUT FOR REAL NOW ->" + childSnap.val().name);
+		firebaseTextMessagesRefResponse["name"] = childSnap.val().name;
+		firebaseTextMessagesRefResponse["phone"] = childSnap.val().phone;
+		firebaseTextMessagesRefResponse["latitude"] = childSnap.val().latcoords;
+		firebaseTextMessagesRefResponse["longitude"] = childSnap.val().longcoords;
+		firebaseTextMessagesRefResponse["image"] = childSnap.val().myHiddenField;
+	});
+});
+
+
+
+
+/* above https://howtofirebase.com/save-and-query-firebase-data-ed73fb8c6e3a */
+
+/*
 var nameRef = firebase.database().ref("TextMessages/");
 
 nameRef.orderByChild("name").on("child_added", function(data) {
-   console.log(data.val().name);
+  console.log(data.val().name);
 });
 */
 /* https://www.tutorialspoint.com/firebase/firebase_queries.htm */
@@ -152,6 +164,6 @@ app.get("/dataFromFirebase", function(request, response) {
 
 // </Routes>
 
-app.listen(config.get("port"), function() {
+app.listen(config.get("port"), function () {
 	console.log("Listening on port " + this.address().port);
 });
